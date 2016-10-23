@@ -55,17 +55,30 @@ if(
 	$newSenha = $_POST['newSenha'];
 	$newIdSenac = $_POST['newIdSenac'];
 	$newTipo = $_POST['newTipo'];
-	if(odbc_exec($db,"	UPDATE Professor SET 
-											nome = '$newName', 
-											email = '$newEmail', 
-											senha = HASHBYTES('SHA1', '$newSenha'), 
-											idSenac = '$newIdSenac', 
-											tipo = '$newTipo' 
-										WHERE codProfessor = {$idProfessor}")){
-		$msg = "Atualizado com sucesso";
-		$erro = "success";
-	} else{
-		$msg = "ERRO";
+
+	$validaIdsenac = strlen($newIdSenac);
+
+	if(validaEmail($newEmail)) {
+		if(!is_numeric($newIdSenac) || $validaIdsenac != 6) {
+			$msg = "ERRO: idSenac inválido";
+			$erro = "danger";
+		} else {
+			if(odbc_exec($db,"	UPDATE Professor SET 
+													nome = '$newName', 
+													email = '$newEmail', 
+													senha = HASHBYTES('SHA1', '$newSenha'), 
+													idSenac = '$newIdSenac', 
+													tipo = '$newTipo' 
+												WHERE codProfessor = {$idProfessor}")){
+				$msg = "Atualizado com sucesso";
+				$erro = "success";
+			} else{
+				$msg = "ERRO";
+				$erro = "danger";
+			}
+		}
+	} else {
+		$msg = "ERRO: E-mail inválido";
 		$erro = "danger";
 	}
 }

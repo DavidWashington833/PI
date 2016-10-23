@@ -7,7 +7,10 @@
                     <input class="form-control" placeholder="Email" type="text" name="newEmail" value="">
                     <input class="form-control" placeholder="Senha" type="password" name="newSenha" value="">
                     <input class="form-control" placeholder="IdSenac" type="text" name="newIdSenac" value="">
-                    <input class="form-control" placeholder="Tipo" type="text" name="newTipo" value="">
+                    <select name="newTipo" class="form-control">
+                        <option value="P">P</option>
+                        <option value="A">A</option>
+                    </select>
                     <button class="btn btn-primary" type="submit">Editar</button>
                 </form>
             </div>
