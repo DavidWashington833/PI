@@ -1,0 +1,143 @@
+/* ==================== GERAL ==================== */
+body {
+    color: #385965;
+}
+
+hr {
+    border-top: 1px solid #00bbd4;
+    opacity: .3;
+}
+
+/*tabelas*/
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    border-top: 1px solid rgba(0, 187, 212, .3);    
+    border-bottom: 1px solid rgba(0, 187, 212, .3) !important;    
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: rgba(0, 187, 212, .1);
+}
+
+/*formularios*/
+.form-control {
+    margin: 10px 0;
+    max-width: 350px;
+    color: #385965 !important;
+    background-color: #fff;
+    border: 1px solid rgba(0, 187, 212, .3);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 187, 212, .3);
+    box-shadow: inset 0 1px 1px rgba(0, 187, 212, .3);
+    transition: .3s ease-in-out;
+}
+
+.form-control:hover, .form-control:focus, .form-control:active {
+    border: 1px solid rgba(0, 187, 212, .5);
+    webkit-box-shadow: inset 0 1px 1px rgba(0, 187, 212, .5), 0 0 8px rgba(0, 187, 212, .5);
+    box-shadow: inset 0 1px 1px rgba(0, 187, 212, .5), 0 0 8px rgba(0, 187, 212, .5)
+}
+
+/*btns*/
+.btn-quiz {
+    color: #fff;
+    background: #00bbd4;
+    border: none;
+    transition: .3s ease-in-out;
+}
+
+.btn-quiz:hover, .btn-quiz:active, .btn-quiz:focus {
+    color: #fff;
+    background: #0099b2;
+}
+
+/*fa controle*/
+.fa-pencil, .fa-times {
+    font-size: 16px;
+    margin: 0 5px;
+    color: #385965;
+    transition: .3s ease-in-out;
+}
+
+.fa-pencil:hover {
+    color: #0dd;
+}
+
+.fa-times:hover {
+    color: #f00;    
+}
+
+/* ==================== /GERAL ==================== */
+
+/* ==================== #menu ==================== */
+.navbar {
+    background: #00bbd4;
+    border-radius: none;
+    border: none;
+}
+
+.navbar li a {
+    font-size: 14px;
+    color: #fff;
+    transition: .3s ease-in-out;
+    background-color: none !important;
+}
+
+.navbar li a:hover, .navbar li a:active, .navbar li a:focus {
+    color: #ddd;
+    background: none;
+}
+
+.navbar-brand {
+    color: #fff;
+    transition: .3s ease-in-out;
+}
+
+.navbar-brand:hover, .navbar-brand:active, .navbar-brand:focus {
+    color: #ddd;
+}
+
+.navbar .fa {
+    color: #fff;
+    font-size: 16px;
+    transition: .3s ease-in-out;
+}
+
+.navbar .fa:hover, .navbar a:hover .fa  {
+    color: #ddd;
+}
+/* ==================== /#menu ==================== */
+
+/* ==================== section#tabelaArea ==================== */
+
+/* ==================== /section#tabelaArea ==================== */
+
+
+/*==================================================
+=            Bootstrap 3 Media Queries             =
+==================================================*/
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+    
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}
