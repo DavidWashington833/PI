@@ -5,6 +5,10 @@ if(isset($_GET['del']) && is_numeric($_GET['del'])) {
 	if (!odbc_exec($db, 'DELETE FROM Professor WHERE codProfessor = ' . $_GET['del'])) {
 		$msg = "ERRO: Problema ao apagar o registro.";
 		$erro = "danger";
+		if(odbc_error() == 23000) {
+			$msg = "ERRO: Este registro não pode ser apagado.";
+			$erro = "danger";
+		}
 	} else {
 		$msg = "Registro apagado com sucesso.";
 		$erro = "success";
@@ -44,7 +48,6 @@ if(
 	isset($_POST['idProfessor']) && 
 	isset($_POST['newName']) && 
 	isset($_POST['newEmail']) && 
-	isset($_POST['newSenha']) &&
 	isset($_POST['newIdSenac']) &&
 	isset($_POST['newTipo'])
 ){
@@ -52,7 +55,6 @@ if(
 	$idProfessor = $_POST['idProfessor'];
 	$newName = $_POST['newName'];
 	$newEmail = $_POST['newEmail'];
-	$newSenha = $_POST['newSenha'];
 	$newIdSenac = $_POST['newIdSenac'];
 	$newTipo = $_POST['newTipo'];
 
@@ -66,7 +68,6 @@ if(
 			if(odbc_exec($db,"	UPDATE Professor SET 
 													nome = '$newName', 
 													email = '$newEmail', 
-													senha = HASHBYTES('SHA1', '$newSenha'), 
 													idSenac = '$newIdSenac', 
 													tipo = '$newTipo' 
 												WHERE codProfessor = {$idProfessor}")){

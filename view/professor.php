@@ -43,25 +43,31 @@
                             
                                 <?php foreach($value as $key2 => $value2){ ?>
 
-                                    <?php
-                                        if($key2 != 0) { ?>
+                                    <?php if($key2 != 0) { ?>
                                         
-                                            <td class="text-center"><?php echo $value2 ?></td>
+                                        <td class="text-center"><?php echo $value2 ?></td>
                                         
-                                        <?php }
+                                    <?php }
+                                    
+                                    switch($key2) {
+                                        case 0:
+                                            $edit = $value2;
+                                            break;
+                                        case 1:
+                                            $oldName = $value2;
+                                            break;
+                                        case 2:
+                                            $oldEmail = $value2;
+                                            break;
+                                        case 3:
+                                            $oldIdsenac = $value2;
+                                            break;
+                                    }
 
-                                        if($key2 == 0) {
-                                            $teste = $value2;
-                                        }
-                                        if($key2 == 1) {
-                                            $old = $value2;
-                                        }
-                                    ?>
-
-                                <?php }; ?>                                
+                                } ?>                           
 
                                 <td class='text-center'> 
-                                    <a href="professor-edit.php?edit=<?php echo $teste ?>&old=<?php echo $old ?>"><i class='fa fa-pencil' aria-hidden='true'></i></a> 
+                                    <a href="professor-edit.php?edit=<?php echo $edit ?>&oldName=<?php echo $oldName ?>&oldEmail=<?php echo $oldEmail ?>&oldIdsenac=<?php echo $oldIdsenac ?>"><i class='fa fa-pencil' aria-hidden='true'></i></a> 
                                     <a href="?del=<?php echo $key ?>"><i class='fa fa-times' aria-hidden='true'></i></a> 
                                 </td>
 
