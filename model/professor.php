@@ -24,17 +24,12 @@ if(isset($_POST['nome']) && isset($_POST['email']) && isset($_POST['senha']) && 
 	$tipo = $_POST['tipo'];
 	$validaIdsenac = strlen($idsenac);
 	if(validaEmail($email)) {
-		if(!is_numeric($idsenac) || $validaIdsenac != 6) {
-			$msg = "ERRO: idSenac inválido";
-			$erro = "danger";
+		if(odbc_exec($db, "INSERT INTO Professor (nome, email, senha, idSenac, tipo) VALUES ('$nome', '$email', HASHBYTES('SHA1', '$senha'), '$idsenac', '$tipo')")) {
+			$msg = "Professor $nome, cadastrado com sucesso.";
+			$erro = "success";
 		} else {
-			if(odbc_exec($db, "INSERT INTO Professor (nome, email, senha, idSenac, tipo) VALUES ('$nome', '$email', HASHBYTES('SHA1', '$senha'), '$idsenac', '$tipo')")) {
-				$msg = "Professor $nome, cadastrado com sucesso.";
-				$erro = "success";
-			} else {
-				$msg = "ERRO";
-				$erro = "danger";
-			}
+			$msg = "ERRO";
+			$erro = "danger";
 		}
 	} else {
 			$msg = "ERRO: E-mail inválido";
