@@ -1,18 +1,12 @@
 <?php
-
-function validaEmail($email){
-	//verifica se e-mail esta no formato correto de escrita
-	if (!ereg('^([a-zA-Z0-9.-_])*([@])([a-z0-9]).([a-z]{2,3})',$email)){
-		//$mensagem='E-mail Inv&aacute;lido!';
+// Define uma função que poderá ser usada para validar e-mails usando regexp
+function validaEmail($email) {
+	$conta = "^[a-zA-Z0-9\._-]+@";
+	$domino = "[a-zA-Z0-9\._-]+.";
+	$extensao = "([a-zA-Z]{2,100})$";
+	$pattern = $conta.$domino.$extensao;
+	if (ereg($pattern, $email))
+		return true;
+	else
 		return false;
-    }
-    else{
-		//Valida o dominio
-		$dominio=explode('@',$email);
-		if(!checkdnsrr($dominio[1],'A')){
-			//$mensagem='E-mail Inv&aacute;lido!';
-			return false;
-		}
-		else{return true;} // Retorno true para indicar que o e-mail é valido
-	}
 }
