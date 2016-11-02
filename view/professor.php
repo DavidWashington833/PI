@@ -16,7 +16,7 @@
                             <input class="form-control" placeholder="Nome" type="text" name="nome">
                             <input class="form-control" placeholder="Email" type="text" name="email">
                             <input class="form-control" placeholder="Senha" type="password" name="senha">
-                            <input class="form-control" placeholder="idSenac" type="number" name="idsenac">
+                            <input class="form-control" placeholder="idSenac" type="text" name="idsenac">
                             <select name="tipo" class="form-control">
                                 <option value="P">P</option>
                                 <option value="A">A</option>
