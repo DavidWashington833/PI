@@ -4,56 +4,109 @@
 
 		<section id="tabelaArea">
 			<div class="container">
+
 				<h3 class="text-center">Área</h3>
-				<h4 class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda molestias, reprehenderit dicta expedita officia sequi velit in omnis alias, repellat consequuntur possimus impedit unde deserunt corrupti libero quam doloribus consectetur.</h4>
-				<hr>				
-				<div class="row">
-					<div class="col-sm-6 col-xs-12">
-						<strong class='text-<?php echo $erro; ?>'><?php if(isset($msg)) echo $msg; ?></strong>
-					</div>
-					<div class="col-sm-6 col-xs-12">
-						<h5>Cadastro</h5>
-						<form class="form-group" method="post">
-							<input class="form-control" placeholder="Assunto" type="text" name="area">
-							<button class="btn btn-quiz" type="submit">Cadastrar</button>
-						</form>
-					</div>
-				</div>				
-				<hr>
+                    
+                <hr>
+
+                <div class="col-xs-2">
+                    <a href="" class="btn btn-quiz" data-toggle="modal" data-target="#myModal"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Adicionar Item</a>
+                </div>
+                <div class="col-xs-10">
+                
+                    <?php if(isset($msg) && isset($alert)) echo "<strong class='text-$alert'>$msg</strong>"; ?>
+                
+                </div>
+
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<!--<th class="text-center">#</th>-->
-							<th class="text-center">Área</th>
-							<th class="text-center">Controle</th>
+							<th class="text-left">
+                                <a href="?order=<?php echo $toggleOrder; ?>&limit=<?php echo $limit; ?>">
+                                    Área <i class="fa fa-sort" aria-hidden="true"></i></i>
+                                </a>
+                            </th>
+							<th class="text-right">Controle</th>
 						</tr>
 					</thead>
 					<tbody>
 
-                        <?php foreach($areas as $key => $value) { ?>
+                        <?php 
+                        
+                            foreach($areas as $key => $value) {
+                                echo "<tr>";
+                                foreach($value as $key2 => $value2) {
+                                    if($key2 == 0) {
+                                        echo "<td class='text-left'>$value2</td>";
+                                        $descricao = $value2;
+                                    } else {
+                                        $codArea = $value2;
+                                        echo    "<td class='text-right'>
+                                                    <a class='data-edit-area' data-edit-area='$descricao|$codArea' href='' data-toggle='modal' data-target='#editModal'><i class='fa fa-pencil' aria-hidden='true'></i></a>
+                                                    <a href='?del=$key'><i class='fa fa-times' aria-hidden='true'></i></a>
+                                                </td>";
+                                    }
+                                }
+                                echo "</tr>";
+                            }
 
-							<tr>
-								<?php foreach($value as $key2 => $value2){ 
-									if($key2 == 0) { $id = $value2; ?>
-
-										<!--<td class="text-center"><?php echo $value2; ?></td>-->										
-									<?php } else { $old = $value2; ?>
-									
-										<td class="text-center"><?php echo $value2; ?></td>
-									<?php }
-								} ?>                         
-										<td class='text-center'> 
-											<a href="area-edit.php?edit=<?php echo $id ?>&old=<?php echo $old ?>"><i class='fa fa-pencil' aria-hidden='true'></i></a> 
-											<a href="?del=<?php echo $key ?>"><i class='fa fa-times' aria-hidden='true'></i></a> 
-										</td>
-
-							</tr>
-
-						<?php }; ?>
+                        ?>
 
 					</tbody>
 				</table>
+
+                <a href="?order=<?php echo $order; ?>&limit=<?php echo $limit + 10; ?>" class="btn btn-quiz">Mais</a>
+
 			</div>
 		</section>
+        
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a href='' class="close" data-dismiss="modal"><i class='fa fa-times' aria-hidden='true'></i></a>
+                        <h4 class="modal-title">Adicionar Area</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" method="get">
+                            <input type="text" class="form-control" placeholder="Area" name="area">
+                            <button type="submit" class="btn btn-quiz">Adicionar</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-quiz" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- Modal -->
+        <div id="editModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a href='' class="close" data-dismiss="modal"><i class='fa fa-times' aria-hidden='true'></i></a>
+                        <h4 class="modal-title">Editar Area</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" method="get">
+                            <input type="text" class="" placeholder="Area" name="idArea" id="idArea" hidden>
+                            <input type="text" class="form-control" placeholder="Area" name="newArea" id="newArea">
+                            <button type="submit" class="btn btn-quiz">Editar</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-quiz" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
 	</main>

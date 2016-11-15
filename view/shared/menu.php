@@ -12,11 +12,8 @@
                     <li><a href="area.php">Área</a></li>
                     <li><a href="assunto.php">Assunto</a></li>
                     <!--<li><a href="tipoquestao.php">Tipo da Questão</a></li>-->
-                    <li><a href="questoes.php">Questões</a></li>
+                    <li><a href="questao.php">Questões</a></li>
                     <li><a href="professor.php">Professor</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
                 </ul>
             </div>
         </div>

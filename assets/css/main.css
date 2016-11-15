@@ -50,11 +50,15 @@ hr {
 }
 
 /*fa controle*/
-.fa-pencil, .fa-times {
+.fa-pencil, .fa-times, .fa-file-image-o {
     font-size: 16px;
     margin: 0 5px;
     color: #385965;
     transition: .3s ease-in-out;
+}
+
+.fa-file-image-o:hover {
+    color: #088;
 }
 
 .fa-pencil:hover {

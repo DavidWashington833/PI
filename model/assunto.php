@@ -1,77 +1,81 @@
 <?php
 
-/* ================== Deletar dados da tabela Assunto ================== */
-
-if(isset($_GET['del']) && is_numeric($_GET['del'])) {
-	if (!odbc_exec($db, 'DELETE FROM Assunto WHERE codAssunto = ' . $_GET['del'])) {
-		$msg = "ERRO: Problema ao apagar o registro.";
-		$erro = "danger";
-		if(odbc_error() == 23000) {
-			$msg = "ERRO: Este item está sendo usado na tabela questões.";
-			$erro = "danger";
-		}
-	} else {
-		$msg = "Registro apagado com sucesso.";
-		$erro = "success";
-	}
+// ==================== SELECT ====================
+function getAssunto($db, $order, $limit) {
+    $query =    odbc_exec($db, 
+                    "SELECT     assunto.descricao as assunto, 
+                                area.descricao as area, 
+                                assunto.codAssunto, 
+                                area.codArea
+                    FROM assunto INNER JOIN area
+                    ON assunto.codArea = area.codArea
+                    ORDER BY assunto.descricao $order
+                    OFFSET 0 ROWS FETCH NEXT $limit ROWS ONLY"
+                );    
+    while($result = odbc_fetch_array($query)) {
+        $get[$result['codAssunto']] =  array(
+                                        $result['assunto'],
+                                        $result['area'],
+                                        $result['codArea'],
+                                        $result['codAssunto']
+                                    ); 
+    }
+    return $get;
 }
 
-/* ================== Passa tabela para a $assutons ================== */
-$query = odbc_exec($db,'SELECT codAssunto, descricao, codArea FROM Assunto');
-
-while($result = odbc_fetch_array($query)) {
-	$assuntos[$result['codAssunto']] = array($result['codAssunto'], $result['descricao'], $result['codArea']);
+// ==================== SELECT(AREA) ====================
+function getArea($db, $order) {
+    $query =    odbc_exec($db, 
+                    "SELECT descricao, codArea
+                    FROM area"
+                );    
+    while($result = odbc_fetch_array($query)) {
+        $get[$result['codArea']] =  array(
+                                        $result['descricao'],
+                                        $result['codArea']
+                                    ); 
+    }
+    return $get;
 }
 
-/* ================== Passa dados para tabela Assunto ================== */
-if(isset($_POST['assunto']) && isset($_POST['area'])) {
-	$assunto = $_POST['assunto'];
-	$assunto = preg_replace('/[^0-9a-zA-ZáàãâäéèêëíìîïóòõôöúùûüçÁÀÃÂÄÉÈÊËÍÌÎÏÓÒÕÖÔÚÙÛÜÇ ]/','',$assunto);
-	$area = $_POST['area'];
 
-	if($assunto == "") {
-		$msg = "ERRO: Espaço em branco";
-		$erro = "danger";
-	} else {
-		if(odbc_exec($db, "INSERT INTO Assunto (descricao, codArea) VALUES ('$assunto', '$area')")) {
-			$msg = "Assunto $assunto, inserida com sucesso.";
-			$erro = "success";
-		} else {
-			$msg = "ERRO: Problema ao inserir o registro.";
-			$erro = "danger";
-		}
-	}	
+// ==================== DELETE ====================
+function delArea($db, $del) {
+    if(odbc_exec($db, 
+        "DELETE FROM assunto
+        WHERE codAssunto = $del"
+    )) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
-/* ================== Editando dados da tabela Assunto ================== */
-if(isset($_POST['newAssunto']) && isset($_POST['newArea'])){
-	$newAssunto = $_POST['newAssunto'];
-	$newArea = $_POST['newArea'];
-	
-	if($newAssunto == "") {
-		$msg = "ERRO: Espaço em branco";
-		$erro = "danger";		
-	} else {
-		if(odbc_exec($db,"	UPDATE Assunto SET descricao = '$newAssunto', codArea = '$newArea' WHERE codAssunto = {$_POST['idAssunto']}")){
-			$msg = "Atualizado com sucesso";
-			$erro = "success";
-		} else{
-			$msg = "ERRO: Item não atualizado";
-			$erro = "danger";
-		}
-	}	
+// ==================== INSERT ====================
+function insertAssunto($db, $assunto, $area) {
+    if(odbc_exec($db, 
+        "INSERT INTO assunto
+        (descricao, codArea)
+        VALUES
+        ('$assunto', '$area')"
+    )) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
-/* ================== Passa tabela para a $areas ================== */
-$query = odbc_exec($db,'SELECT codArea, descricao FROM Area');
-
-while($result = odbc_fetch_array($query)) {
-	$areas[$result['codArea']] = $result['descricao'];
-}
-
-/* ================== Passa tabela para a $assutons ================== */
-$query = odbc_exec($db,'SELECT codAssunto, descricao, codArea FROM Assunto');
-
-while($result = odbc_fetch_array($query)) {
-	$assuntos[$result['codAssunto']] = array($result['codAssunto'], $result['descricao'], $result['codArea']);
+// ==================== UPDATE ====================
+function updateAssunto($db, $idAssunto, $newAssunto, $newArea) {
+    if(odbc_exec($db, 
+        "UPDATE assunto
+        SET
+        descricao = '$newAssunto',
+        codArea = '$newArea'
+        WHERE codAssunto = $idAssunto"
+    )) {
+        return true;
+    } else {
+        return false;
+    }
 }

@@ -3,29 +3,11 @@
         <section id="tabelaProfessor">
             <div class="container">
 				<h3 class="text-center">Professores</h3>
-				<h4 class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda molestias, reprehenderit dicta expedita officia sequi velit in omnis alias, repellat consequuntur possimus impedit unde deserunt corrupti libero quam doloribus consectetur.</h4>
 				<hr>	
-                <div class="row">
-                        <div class="col-sm-6 col-xs-12">
-                            <strong class='text-<?php echo $erro; ?>'><?php if(isset($msg)) echo $msg; ?></strong>
-                    </div>
-                    <div class="col-sm-6 col-xs-12">
-                        <h5>Cadastro</h5>
-
-                        <form class="form-group" method="post">
-                            <input class="form-control" placeholder="Nome" type="text" name="nome">
-                            <input class="form-control" placeholder="Email" type="text" name="email">
-                            <input class="form-control" placeholder="Senha" type="password" name="senha">
-                            <input class="form-control" placeholder="idSenac" type="text" name="idsenac">
-                            <select name="tipo" class="form-control">
-                                <option value="P">P</option>
-                                <option value="A">A</option>
-                            </select>
-                            <button class="btn btn-primary" type="submit">Cadastrar</button>
-                        </form>
-                    </div>
-                </div>              
-                <hr>
+                
+                <div class="col-xs-2">
+                    <a href="" class="btn btn-quiz" data-toggle="modal" data-target="#myModal"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Adicionar Item</a>
+                </div>       
                 
                 <table class="table table-striped">
                     <thead>
