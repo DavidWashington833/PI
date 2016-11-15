@@ -1,5 +1,19 @@
+<?php
 
-    <nav id="menu" class="navbar">
+if(isset($_SESSION['showMenu'])) {
+    if($_SESSION['showMenu']) {
+        $hidden = "hidden";
+    } else {
+        $hidden = "";
+    }
+} else {
+    $hidden = "";
+}
+
+?>
+
+
+    <nav id="menu" class="navbar" <?php echo $hidden; ?>>
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">

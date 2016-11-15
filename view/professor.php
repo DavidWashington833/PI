@@ -16,7 +16,13 @@
                         <th class="text-center">E-mail</th>
                         <th class="text-center">codSenac</th>
                         <th class="text-center">Permição</th>
+                        
+                        <?php if($_SESSION['tipoProfessor'] == "A") { ?>
+
                         <th class="text-center">Controle</th>
+
+                        <?php } ?>
+
                     </thead>
                     <tbody>
 
@@ -46,14 +52,15 @@
                                             break;
                                     }
 
-                                } ?>                           
+                                } 
+                                if($_SESSION['tipoProfessor'] == "A") { ?>                           
 
                                 <td class='text-center'> 
                                     <a href="professor-edit.php?edit=<?php echo $edit ?>&oldName=<?php echo $oldName ?>&oldEmail=<?php echo $oldEmail ?>&oldIdsenac=<?php echo $oldIdsenac ?>"><i class='fa fa-pencil' aria-hidden='true'></i></a> 
                                     <a href="?del=<?php echo $key ?>"><i class='fa fa-times' aria-hidden='true'></i></a> 
                                 </td>
 
-                                <?php }; ?>
+                                <?php }}; ?>
 
                             </tr>
                     </tbody>

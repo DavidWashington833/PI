@@ -1,4 +1,6 @@
 <?php
+
+include "integracao/loginFunc.php";
 include "../session/professor.php";
 include "../config/db.php";
 include "../helpers/valida-email.php";
