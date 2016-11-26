@@ -1,8 +1,9 @@
 <?php
 
-include "integracao/loginFunc.php";
+include "../integracao/loginFunc.php";
+lidaBasicAuthentication('../../portal/naoautorizado.php');
 include "../session/professor.php";
-include "../config/config.php";
+//include "../config/config.php";
 include "../config/db.php";
 include "../helpers/valida-texto.php";
 include "../model/area.php";
@@ -63,7 +64,7 @@ if($order == "ASC") {
 // FUNÇÃO SELECT AREA
 $areas = getArea($db, $order, $limit);
 
-include "../erro/area.php";
+//include "../erro/area.php";
 include "../view/shared/header.php";
 include "../view/shared/menu.php";
 include "../view/area.php";

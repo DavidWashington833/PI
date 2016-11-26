@@ -55,6 +55,22 @@ function getAssunto($db, $order) {
 // ==================== SELECT(IMAGEM) ====================
 function getImagem($db, $order) {
     $query =    odbc_exec($db, 
+                    "SELECT codQuestao, codAlternativa, textoAlternativa
+                    FROM alternativa"
+                );    
+    while($result = odbc_fetch_array($query)) {
+        $get[$result['codImagem']] =  array(
+                                        $result['tituloImagem'],
+                                        $result['tituloImagem'],
+                                        $result['codImagem']
+                                    ); 
+    }
+    return $get;
+}
+
+// ==================== SELECT(ALTERNATIVA) ====================
+function getImagem($db, $order) {
+    $query =    odbc_exec($db, 
                     "SELECT tituloImagem, codImagem
                     FROM imagem"
                 );    

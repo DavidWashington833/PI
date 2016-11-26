@@ -6,7 +6,13 @@
 				<hr>	
                 
                 <div class="col-xs-2">
-                    <a href="" class="btn btn-quiz" data-toggle="modal" data-target="#myModal"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Adicionar Item</a>
+
+                    <?php if($_SESSION['tipoProfessor'] == "A") { ?>
+
+                        <a href="" class="btn btn-quiz" data-toggle="modal" data-target="#myModal"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Adicionar Item</a>
+                        
+                    <?php } ?>
+                    
                 </div>       
                 
                 <table class="table table-striped">

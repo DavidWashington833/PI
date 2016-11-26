@@ -174,3 +174,30 @@
 
             </div>
         </div>
+
+
+        <!-- Modal -->
+        <div id="modalIMG" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a href='' class="close" data-dismiss="modal"><i class='fa fa-times' aria-hidden='true'></i></a>
+                        <h4 class="modal-title">Adicionar Questão</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            <input class="form-control" type="text" name="tituloImagem" placeholder="Titulo da imagem">
+                            <input class="form-control" type="file" name="imagem">
+
+                            <button type="submit" class="btn btn-quiz">Adicionar</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-quiz" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>

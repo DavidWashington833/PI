@@ -11,6 +11,7 @@
 
                 <div class="col-xs-2">
                     <a href="" class="btn btn-quiz" data-toggle="modal" data-target="#myModal"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Adicionar Item</a>
+                    <a href="" class="btn btn-quiz" data-toggle="modal" data-target="#modalIMG"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Adicionar Imagem</a>
                 </div>
                 <div class="col-xs-10">
                 
