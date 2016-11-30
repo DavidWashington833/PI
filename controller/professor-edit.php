@@ -1,7 +1,6 @@
 <?php
 
 include "../integracao/loginFunc.php";
-lidaBasicAuthentication('../../portal/naoautorizado.php');
 include "../session/professor.php";
 include "../view/shared/header.php";
 include "../view/shared/menu.php";

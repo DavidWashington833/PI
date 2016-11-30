@@ -19,30 +19,19 @@ function getArea($db, $order, $limit) {
 
 // ==================== DELETE ====================
 function delArea($db, $del) {
-    $query =    odbc_exec($db, 
-                    "SELECT codAssunto, codArea
-                    FROM assunto"
-                );
-    while($result = odbc_fetch_array($query)) {
-        $assuntos[$result['codAssunto']] = $result['codArea'];
-    }
-    $validaDel = true;
-    foreach ($assuntos as $key => $value) {
-        if($assuntos[$key] = $del) {
-            $validaDel = false;
-        }
-    }
-    if($validaDel) {
-        if(odbc_exec($db, 
-            "DELETE FROM area
-            WHERE codArea = $del"
-        )) {
-            return true;
-        } else {
-            return false;
-        }
-    } else {
+   $query = odbc_exec($db, 
+             "SELECT codAssunto, codArea
+              FROM assunto
+              WHERE codArea = $del"
+    );
+    if(odbc_num_rows($query) > 0){
         return false;
+    } else {
+        odbc_exec($db, 
+             "DELETE FROM area
+             WHERE codArea = $del
+             ");
+        return true;
     }
 }
 

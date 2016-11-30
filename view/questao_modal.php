@@ -9,11 +9,11 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <a href='' class="close" data-dismiss="modal"><i class='fa fa-times' aria-hidden='true'></i></a>
-                        <h4 class="modal-title">Adicionar Questão</h4>
+                        <h4 class="modal-title">Adicionar Quest&atilde;o</h4>
                     </div>
                     <div class="modal-body">
                         <form action="" method="get">
-                            <label>Questão</label>
+                            <label>Quest&atilde;o</label>
                             <textarea class="form-control" name="questao"></textarea>
                             <label>Assunto</label>
                             <select class='form-control' name="inAssunto" id="">
@@ -58,8 +58,8 @@
                             </select>
                             <label>Dificuldade</label>
                             <select class='form-control' name="inDificuldade" id="">  
-                                <option value="F">Fácil</option>                                
-                                <option value="M">Médio</option>       
+                                <option value="F">F&aacute;cil</option>                                
+                                <option value="M">M&eacute;dio</option>       
                                 <option value="D">Dificil</option>       
                             </select>
                             <hr>
@@ -96,12 +96,12 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <a href='' class="close" data-dismiss="modal"><i class='fa fa-times' aria-hidden='true'></i></a>
-                        <h4 class="modal-title">Adicionar Questão</h4>
+                        <h4 class="modal-title">Adicionar Quest&atilde;o</h4>
                     </div>
                     <div class="modal-body">
                         <form action="" method="get">
                             <input type="text" name="idQuestao" id="idQuestao" value="" hidden>
-                            <label>Questão</label>
+                            <label>Quest&atilde;o</label>
                             <textarea class="form-control" name="newQuestao" id="newQuestao"></textarea>
                             <label>Assunto</label>
                             <select class='form-control' name="newAssunto" id="">
@@ -146,8 +146,8 @@
                             </select>
                             <label>Dificuldade</label>
                             <select class='form-control' name="newDificuldade" id="">  
-                                <option value="F">Fácil</option>                                
-                                <option value="M">Médio</option>       
+                                <option value="F">F&aacute;cil</option>                                
+                                <option value="M">M&eacute;dio</option>       
                                 <option value="D">Dificil</option>       
                             </select>
                             <hr>
@@ -184,7 +184,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <a href='' class="close" data-dismiss="modal"><i class='fa fa-times' aria-hidden='true'></i></a>
-                        <h4 class="modal-title">Adicionar Questão</h4>
+                        <h4 class="modal-title">Adicionar Imagem</h4>
                     </div>
                     <div class="modal-body">
                         <form action="" method="post" enctype="multipart/form-data">

@@ -14,7 +14,7 @@ function getQuestao($db, $order, $limit) {
                                 a.codAssunto
                     FROM questao as q INNER JOIN assunto as a
                     ON q.codAssunto = a.codAssunto
-                    INNER JOIN imagem as i
+                    LEFT JOIN imagem as i
                     ON q.codImagem = i.codImagem
                     INNER JOIN professor as p
                     ON p.codProfessor = q.codProfessor
@@ -34,6 +34,7 @@ function getQuestao($db, $order, $limit) {
                                         $result['codAssunto']
                                     ); 
     }
+
     return $get;
 }
 
@@ -53,22 +54,6 @@ function getAssunto($db, $order) {
 }
 
 // ==================== SELECT(IMAGEM) ====================
-function getImagem($db, $order) {
-    $query =    odbc_exec($db, 
-                    "SELECT codQuestao, codAlternativa, textoAlternativa
-                    FROM alternativa"
-                );    
-    while($result = odbc_fetch_array($query)) {
-        $get[$result['codImagem']] =  array(
-                                        $result['tituloImagem'],
-                                        $result['tituloImagem'],
-                                        $result['codImagem']
-                                    ); 
-    }
-    return $get;
-}
-
-// ==================== SELECT(ALTERNATIVA) ====================
 function getImagem($db, $order) {
     $query =    odbc_exec($db, 
                     "SELECT tituloImagem, codImagem

@@ -1,7 +1,6 @@
 <?php
 
 include "../integracao/loginFunc.php";
-lidaBasicAuthentication('../../portal/naoautorizado.php');
 include "../session/professor.php";
 include "../config/config.php";
 include "../config/db.php";
@@ -18,7 +17,7 @@ if( isset($_GET['newAssunto']) &&
         $newAssunto = validaTexto($newAssunto);
         $newArea = $_GET['newArea'];
         if(updateAssunto($db, $idAssunto, $newAssunto, $newArea)) {
-            $msg = "Item $newAssunto atualizado";
+            $msg = "Assunto $newAssunto atualizado";
             $alert = "success";
         }
     }
@@ -41,7 +40,7 @@ if(isset($_GET['assunto']) && isset($_GET['area'])) {
 if(isset($_GET['del'])) {
     $del = $_GET['del'];
     if(delArea($db, $del)) {
-        $msg = "Item removido com sucesso.";
+        $msg = "Assunto removido com sucesso.";
         $alert = "success";
     }
 }

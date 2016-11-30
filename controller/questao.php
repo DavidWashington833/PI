@@ -1,7 +1,6 @@
 <?php
 
 include "../integracao/loginFunc.php";
-lidaBasicAuthentication('../../portal/naoautorizado.php');
 include "../session/professor.php";
 include "../config/config.php";
 include "../config/db.php";
@@ -46,7 +45,7 @@ if( isset($_GET['idQuestao']) &&
                             $newAlternativa4,
                             $newCorreto,
                             $inProfessor)) {
-            $msg = "Item $newQuestao atualizado";
+            $msg = "Quest&atilde;o $newQuestao atualizado";
             $alert = "success";
         }
     }
@@ -110,12 +109,12 @@ if(isset($_FILES['imagem']) && isset($_POST['tituloImagem'])){
                                         (tituloImagem, bitmapImagem) 
                                         VALUES 
                                         (?,?)');             
-        if(odbc_execute($stmt, array( 'QWE',
+        if(odbc_execute($stmt, array( $_POST['tituloImagem'],
                         $fileParaDB))){
                                     
-            $msg_sucesso .= '<br>Imagem armazenada no DB';                  
+            $msg_sucesso .= '<br>Imagem armazenada';                   
         }else{
-            $msg_erro .= 'Erro ao salvar a Imagem no DB.';
+            $msg_erro .= 'Erro ao salvar a Imagem.';
         }       
     }else{
         if($_FILES['imagem']['size'] > 9000000){
@@ -160,6 +159,7 @@ if($order == "ASC") {
 // FUNÇÃO SELECT AREA
 $questoes = getQuestao($db, $order, $limit);
 
+include "../erro/questao.php";
 include "../view/shared/header.php";
 include "../view/shared/menu.php";
 include "../view/questao.php";

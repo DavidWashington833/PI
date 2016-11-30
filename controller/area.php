@@ -1,9 +1,8 @@
 <?php
 
 include "../integracao/loginFunc.php";
-lidaBasicAuthentication('../../portal/naoautorizado.php');
 include "../session/professor.php";
-//include "../config/config.php";
+include "../config/config.php";
 include "../config/db.php";
 include "../helpers/valida-texto.php";
 include "../model/area.php";
@@ -39,7 +38,11 @@ if(isset($_GET['del'])) {
     if(delArea($db, $del)) {
         $msg = "Item removido com sucesso.";
         $alert = "success";
+    } else{
+        $msg = "Item n&atilde;o pode ser removido.";
+        $alert = "danger";
     }
+
 }
 
 // LIMITI DE ROWS

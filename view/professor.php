@@ -9,7 +9,7 @@
 
                     <?php if($_SESSION['tipoProfessor'] == "A") { ?>
 
-                        <a href="" class="btn btn-quiz" data-toggle="modal" data-target="#myModal"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Adicionar Item</a>
+                        <a href="" class="btn btn-quiz" data-toggle="modal" data-target="#myModal"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Adicionar Professor</a>
                         
                     <?php } ?>
                     
@@ -21,7 +21,7 @@
                         <th class="text-center">Nome</th>
                         <th class="text-center">E-mail</th>
                         <th class="text-center">codSenac</th>
-                        <th class="text-center">Permição</th>
+                        <th class="text-center">Permiss&atilde;o</th>
                         
                         <?php if($_SESSION['tipoProfessor'] == "A") { ?>
 

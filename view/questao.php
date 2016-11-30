@@ -5,12 +5,12 @@
 		<section id="tabelaArea">
 			<div class="container">
 
-				<h3 class="text-center">Questão</h3>
+				<h3 class="text-center">Quest&atilde;o</h3>
                     
                 <hr>
 
                 <div class="col-xs-2">
-                    <a href="" class="btn btn-quiz" data-toggle="modal" data-target="#myModal"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Adicionar Item</a>
+                    <a href="" class="btn btn-quiz" data-toggle="modal" data-target="#myModal"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Adicionar Quest&atilde;o</a>
                     <a href="" class="btn btn-quiz" data-toggle="modal" data-target="#modalIMG"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Adicionar Imagem</a>
                 </div>
                 <div class="col-xs-10">
@@ -24,7 +24,7 @@
 						<tr>
 							<th class="text-left">
                                 <a href="?order=<?php echo $toggleOrder; ?>&limit=<?php echo $limit; ?>">
-                                    Questão <i class="fa fa-sort" aria-hidden="true"></i></i>
+                                    Quest&atilde;o <i class="fa fa-sort" aria-hidden="true"></i></i>
                                 </a>
                             </th>
                             <th>
@@ -91,11 +91,13 @@
                                     }
                                     if($key2 == 7) {
                                         $codArea = $value2;
-                                        echo    "<td class='text-right'>
-                                                    <a href='imagem.php?ver=$viewImagem' target='_blank'><i class='fa fa-file-image-o' aria-hidden='true'></i></a>
-                                                    <a class='data-edit-questao' data-edit-questao='$descricao|$key' href='' data-toggle='modal' data-target='#editModal'><i class='fa fa-pencil' aria-hidden='true'></i></a>
-                                                    <a href='?del=$key'><i class='fa fa-times' aria-hidden='true'></i></a>
-                                                </td>";
+                                        if($professor == $_SESSION["nomeProfessor"] || $_SESSION["tipoProfessor"] == "A")  {
+                                            echo    "<td class='text-right'>
+                                                        <a href='imagem.php?ver=$viewImagem' target='_blank'><i class='fa fa-file-image-o' aria-hidden='true'></i></a>
+                                                        <a class='data-edit-questao' data-edit-questao='$descricao|$key' href='' data-toggle='modal' data-target='#editModal'><i class='fa fa-pencil' aria-hidden='true'></i></a>
+                                                        <a href='?del=$key'><i class='fa fa-times' aria-hidden='true'></i></a>
+                                                    </td>";
+                                        }             
                                     }
                                 }
                                 echo "</tr>";

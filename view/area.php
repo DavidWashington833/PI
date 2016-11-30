@@ -5,12 +5,12 @@
 		<section id="tabelaArea">
 			<div class="container">
 
-				<h3 class="text-center">Área</h3>
+				<h3 class="text-center">&Aacute;rea</h3>
                     
                 <hr>
 
                 <div class="col-xs-2">
-                    <a href="" class="btn btn-quiz" data-toggle="modal" data-target="#myModal"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Adicionar Item</a>
+                    <a href="" class="btn btn-quiz" data-toggle="modal" data-target="#myModal"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Adicionar &Aacute;rea</a>
                 </div>
                 <div class="col-xs-10">
                 
@@ -23,7 +23,7 @@
 						<tr>
 							<th class="text-left">
                                 <a href="?order=<?php echo $toggleOrder; ?>&limit=<?php echo $limit; ?>">
-                                    Área <i class="fa fa-sort" aria-hidden="true"></i></i>
+                                    &Aacute;rea <i class="fa fa-sort" aria-hidden="true"></i></i>
                                 </a>
                             </th>
 							<th class="text-right">Controle</th>
@@ -68,11 +68,11 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <a href='' class="close" data-dismiss="modal"><i class='fa fa-times' aria-hidden='true'></i></a>
-                        <h4 class="modal-title">Adicionar Area</h4>
+                        <h4 class="modal-title">Adicionar &Aacute;rea</h4>
                     </div>
                     <div class="modal-body">
                         <form action="" method="get">
-                            <input type="text" class="form-control" placeholder="Area" name="area">
+                            <input type="text" class="form-control" placeholder="&Aacute;rea" name="area">
                             <button type="submit" class="btn btn-quiz">Adicionar</button>
                         </form>
                     </div>
@@ -92,12 +92,12 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <a href='' class="close" data-dismiss="modal"><i class='fa fa-times' aria-hidden='true'></i></a>
-                        <h4 class="modal-title">Editar Area</h4>
+                        <h4 class="modal-title">Editar &Aacute;rea</h4>
                     </div>
                     <div class="modal-body">
                         <form action="" method="get">
-                            <input type="text" class="" placeholder="Area" name="idArea" id="idArea" hidden>
-                            <input type="text" class="form-control" placeholder="Area" name="newArea" id="newArea">
+                            <input type="text" class="" placeholder="Àrea" name="idArea" id="idArea" hidden>
+                            <input type="text" class="form-control" placeholder="&Aacute;rea" name="newArea" id="newArea">
                             <button type="submit" class="btn btn-quiz">Editar</button>
                         </form>
                     </div>
